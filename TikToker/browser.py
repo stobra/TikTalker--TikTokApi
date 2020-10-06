@@ -49,7 +49,7 @@ class browser:
                 self.args.append("--proxy-server=" + proxy)
         self.options = {
             'args': self.args,
-            'headless': True,
+            'headless': False,
             'ignoreHTTPSErrors': True,
             'userDataDir': "./tmp",
             'handleSIGINT': False,
