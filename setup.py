@@ -13,10 +13,10 @@ setuptools.setup(
     description='The Unofficial TikTok API Wrapper in Python 3.',
     author='David Teather',
     author_email='contact.davidteather@gmail.com',
-    url='https://github.com/davidteather/tiktok-api',
+    url='https://github.com/stobra/TikTok-Api.git',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    download_url='https://github.com/davidteather/TikTok-Api/tarball/master',
+    download_url='https://github.com/stobra/TikTok-Api.git',
     keywords=['tiktok', 'python3', 'api', 'unofficial', 'tiktok-api', 'tiktok api'],
     install_requires=[
         'requests',
