@@ -8,7 +8,7 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name='TikTalker',
     packages=['TikTalker'],
-    version='3.5.4',
+    version='0.0.0',
     license='MIT',
     description='The Unofficial TikTok API Wrapper in Python 3.',
     author='David Teather',
