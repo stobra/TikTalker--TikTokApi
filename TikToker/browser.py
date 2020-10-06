@@ -17,7 +17,7 @@ async_support = False
 
 def set_async():
     global async_support
-    async_support = True
+    async_support = False
 
 
 class browser:

@@ -1,3 +1,6 @@
 # from TikTokApi import TikTokApi
-from bTikToK import TikTokApi 
-api =TikTokApi()
+from TikToker import TikTokApi 
+
+driverlocation = r"C:\ProgramData\Python\Chromedrivers\chromedriver_85.exe"
+api =TikTokApi(debug=True, executablePath=driverlocation)
+
