@@ -17,7 +17,7 @@ async_support = False
 
 def set_async():
     global async_support
-    async_support = False
+    async_support = True
 
 
 class browser:
@@ -43,10 +43,11 @@ class browser:
 
         if proxy != None:
             if "@" in proxy:
-                self.args.append("--proxy-server=" + proxy.split(":")[0] + "://" + proxy.split(
-                    "://")[1].split(":")[1].split("@")[1] + ":" + proxy.split("://")[1].split(":")[2])
+                self.args.append("--proxy-server=" + proxy.split(":")[0] + "://" + 
+                proxy.split("://")[1].split(":")[1].split("@")[1] + ":" + proxy.split("://")[1].split(":")[2])
             else:
                 self.args.append("--proxy-server=" + proxy)
+            print('proxy:', proxy)
         self.options = {
             'args': self.args,
             'headless': False,
@@ -92,16 +93,19 @@ class browser:
         self.page = await self.browser.newPage()
         await self.page.goto("about:blank")
 
-        # self.browser_language = await self.page.evaluate("""() => { return navigator.language || navigator.userLanguage; }""")
-        self.browser_language = ""
-        # self.timezone_name = await self.page.evaluate("""() => { return Intl.DateTimeFormat().resolvedOptions().timeZone; }""")
-        self.timezone_name = ""
-        # self.browser_platform = await self.page.evaluate("""() => { return window.navigator.platform; }""")
-        self.browser_platform = ""
-        # self.browser_name = await self.page.evaluate("""() => { return window.navigator.appCodeName; }""")
-        self.browser_name = ""
-        # self.browser_version = await self.page.evaluate("""() => { return window.navigator.appVersion; }""")
-        self.browser_version = ""
+        await self.page.goto(self.referrer)
+
+
+        self.browser_language = await self.page.evaluate("""() => { return navigator.language || navigator.userLanguage; }""")
+        # self.browser_language = ""
+        self.timezone_name = await self.page.evaluate("""() => { return Intl.DateTimeFormat().resolvedOptions().timeZone; }""")
+        # self.timezone_name = ""
+        self.browser_platform = await self.page.evaluate("""() => { return window.navigator.platform; }""")
+        # self.browser_platform = ""
+        self.browser_name = await self.page.evaluate("""() => { return window.navigator.appCodeName; }""")
+        # self.browser_name = ""
+        self.browser_version = await self.page.evaluate("""() => { return window.navigator.appVersion; }""")
+        # self.browser_version = ""
 
         self.width = await self.page.evaluate("""() => { return screen.width; }""")
         self.height = await self.page.evaluate("""() => { return screen.height; }""")
@@ -215,3 +219,4 @@ class browser:
 
     def __get_js(self, proxy=None):
         return requests.get("https://sf16-muse-va.ibytedtos.com/obj/rc-web-sdk-gcs/acrawler.js", proxies=self.__format_proxy(proxy)).text
+         

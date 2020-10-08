@@ -481,7 +481,7 @@ async def stealth(page: Page) -> None:
     if not isinstance(page, Page):
         raise ValueError("page must is pyppeteer.page.Page")
 
-    #await chrome_runtime(page)
+    # await chrome_runtime(page)
     await console_debug(page)
     await iframe_content_window(page)
     #await navigator_languages(page)
