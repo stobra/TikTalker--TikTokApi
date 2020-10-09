@@ -10,7 +10,7 @@ setuptools.setup(
     packages=['TikTok'],
     version='0.0.0',
     license='MIT',
-    description='The Unofficial TikTok API Wrapper in Python 3.',
+    description='The Unofficial TikTok API Wrapper in Python 3',
     author='David Teather',
     author_email='contact.davidteather@gmail.com',
     url='https://github.com/stobra/TikerToker--TikTokApi',

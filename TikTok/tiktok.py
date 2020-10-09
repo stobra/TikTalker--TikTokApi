@@ -49,8 +49,8 @@ class TikTokApi:
             self.browser_platform = ""
             self.browser_name = ""
             self.browser_version = ""
-            self.width = "1920"
-            self.height = "1080"
+            self.width = "700"
+            self.height = "500"
 
         self.request_delay = request_delay
 
@@ -70,7 +70,7 @@ class TikTokApi:
         if self.request_delay is not None:
             time.sleep(self.request_delay)
 
-        query = {'verifyFp': b.verifyFp, 'did': b.did, '_signature': b.signature}
+        query = {'did': b.did, '_signature': b.signature} # 'verifyFp': b.verifyFp, 
         url = "{}&{}".format(b.url, urlencode(query))
         r = requests.get(url, headers={
             'authority': 'm.tiktok.com',
