@@ -93,8 +93,8 @@ class browser:
     async def newParams(self) -> None:
         self.browser = await pyppeteer.launch(self.options)
         self.page = await self.browser.newPage()
-        await self.page.goto(self.referrer)
-        # await self.page.goto("about:blank")
+        await self.page.goto("about:blank")
+        # await self.page.goto(self.referrer)
         # await asyncio.sleep(.2)
 
 

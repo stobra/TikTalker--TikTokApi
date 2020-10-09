@@ -2,6 +2,7 @@ import random
 import requests
 import time
 from urllib.parse import urlencode
+from random import randint
 
 from .browser import browser
 
@@ -49,8 +50,8 @@ class TikTokApi:
             self.browser_platform = ""
             self.browser_name = ""
             self.browser_version = ""
-            self.width = "700"
-            self.height = "500"
+            self.width = randint(320, 980)
+            self.height = randint(320, 980)
 
         self.request_delay = request_delay
 
