@@ -11,4 +11,4 @@ if __name__ == "__main__":
     api = TikTokApi()
     t = api.byUsername('therock', 5)
     print(t)
-    # test_trending()
+    # test_trending() 
