@@ -71,9 +71,14 @@ class TikTokApi:
         if self.request_delay is not None:
             time.sleep(self.request_delay)
 
-        query = {'did': b.did, '_signature': b.signature} # 'verifyFp': b.verifyFp, 
-        url = "{}&{}".format(b.url, urlencode(query))
-        r = requests.get(url, headers={
+        query = {'did': b.did, '_signature': b.signature}
+        try:
+            query['verifyFp'] = b.verifyFp 
+        except:
+            print('No verifyFp')   
+            pass 
+        url = f"{b.url}&{urlencode(query)}"
+        headers={
             'authority': 'm.tiktok.com',
             "method": "GET",
             'path': url.split("tiktok.com")[1],
@@ -87,7 +92,8 @@ class TikTokApi:
             'sec-fetch-site': 'same-site',
             "user-agent": b.userAgent,
             'cookie': 'tt_webid_v2=' + b.did
-        }, proxies=self.__format_proxy(proxy))
+        }
+        r = requests.get(url, headers=headers, proxies=self.__format_proxy(proxy))
         try:
             return r.json()
         except Exception as e:
@@ -96,6 +102,7 @@ class TikTokApi:
             print(r.request.headers)
             print("Converting response to JSON failed response is below (probably empty)")
             print(r.text)
+            print(r.status_code)
 
             raise Exception('Invalid Response')
 
@@ -1066,4 +1073,5 @@ class TikTokApi:
 
         return region, language, proxy, minCursor, maxCursor, maxCount
 
-TikTokApi(debug=True)
+# tik = TikTokApi(debug=True)
+# u = tik.getUserObject('iamcardib')
