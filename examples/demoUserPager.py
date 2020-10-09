@@ -1,5 +1,5 @@
 from datetime import datetime
-from TikTokApi import TikTokApi
+from TikTok import TikTokApi
 
 api = TikTokApi(debug=True)
 

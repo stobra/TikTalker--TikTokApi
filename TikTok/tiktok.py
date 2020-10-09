@@ -1064,3 +1064,5 @@ class TikTokApi:
         maxCount = kwargs.get('maxCount', 50)
 
         return region, language, proxy, minCursor, maxCursor, maxCount
+
+TikTokApi(debug=True)

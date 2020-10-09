@@ -5,6 +5,7 @@ import time
 import string
 import requests
 import logging
+from random import randint 
 from threading import Thread
 
 # Import Detection From Stealth
@@ -92,24 +93,26 @@ class browser:
     async def newParams(self) -> None:
         self.browser = await pyppeteer.launch(self.options)
         self.page = await self.browser.newPage()
-        await self.page.goto("about:blank")
-        # await self.page.goto(self.referrer)
+        await self.page.goto(self.referrer)
+        # await self.page.goto("about:blank")
+        await asyncio.sleep(.2)
 
 
 
-        self.browser_language = await self.page.evaluate("""() => { return navigator.language || navigator.userLanguage; }""")
-        # self.browser_language = ""
-        self.timezone_name = await self.page.evaluate("""() => { return Intl.DateTimeFormat().resolvedOptions().timeZone; }""")
-        # self.timezone_name = ""
-        self.browser_platform = await self.page.evaluate("""() => { return window.navigator.platform; }""")
-        # self.browser_platform = ""
-        self.browser_name = await self.page.evaluate("""() => { return window.navigator.appCodeName; }""")
-        # self.browser_name = ""
-        self.browser_version = await self.page.evaluate("""() => { return window.navigator.appVersion; }""")
-        # self.browser_version = ""
-
-        self.width = await self.page.evaluate("""() => { return screen.width; }""")
-        self.height = await self.page.evaluate("""() => { return screen.height; }""")
+        self.browser_language = ""
+        self.timezone_name = ""
+        self.browser_platform = ""
+        self.browser_name = ""
+        self.browser_version = ""
+        self.width = randint(320, 980)
+        self.height = randint(320, 980)
+        # self.timezone_name = await self.page.evaluate("""() => { return Intl.DateTimeFormat().resolvedOptions().timeZone; }""")
+        # self.browser_language = await self.page.evaluate("""() => { return navigator.language || navigator.userLanguage; }""")
+        # self.browser_platform = await self.page.evaluate("""() => { return window.navigator.platform; }""")
+        # self.browser_name = await self.page.evaluate("""() => { return window.navigator.appCodeName; }""")
+        # self.browser_version = await self.page.evaluate("""() => { return window.navigator.appVersion; }""")
+        # self.width = await self.page.evaluate("""() => { return screen.width; }""")
+        # self.height = await self.page.evaluate("""() => { return screen.height; }""")
 
         await self.browser.close()
         self.browser.process.communicate()
