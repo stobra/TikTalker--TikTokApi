@@ -23,5 +23,7 @@ proxy broker testsing.py
 test_error.py
 test_get_acrawler.py
 test_stealth.py
-__pycache__/test_get_acrawler.cpython-38.pyc
-__pycache__/test_stealth.cpython-38.pyc
+__pycache__/*
+TikTok/__pycache__/*
+TikTok/__pycache__/browser.cpython-38.pyc
+TikTok/__pycache__/tiktok.cpython-38.pyc
