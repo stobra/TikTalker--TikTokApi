@@ -95,7 +95,7 @@ class browser:
         self.page = await self.browser.newPage()
         await self.page.goto(self.referrer)
         # await self.page.goto("about:blank")
-        await asyncio.sleep(.2)
+        # await asyncio.sleep(.2)
 
 
 
