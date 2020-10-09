@@ -1,4 +1,4 @@
-from TikTokApi import TikTokApi
+from TikTok import TikTokApi
 
 def test_tiktok_object():
     api = TikTokApi()

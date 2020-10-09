@@ -1,4 +1,4 @@
-from TikTokApi import TikTokApi
+from TikTok import TikTokApi
 
 def test_search_for():
     api = TikTokApi()
