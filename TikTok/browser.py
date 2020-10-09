@@ -50,7 +50,8 @@ class browser:
             print('proxy:', proxy)
         self.options = {
             'args': self.args,
-            'headless': False,
+            # 'headless': False,
+            'headless': True,
             'ignoreHTTPSErrors': True,
             'userDataDir': "./tmp",
             'handleSIGINT': False,
@@ -92,8 +93,8 @@ class browser:
         self.browser = await pyppeteer.launch(self.options)
         self.page = await self.browser.newPage()
         await self.page.goto("about:blank")
+        # await self.page.goto(self.referrer)
 
-        await self.page.goto(self.referrer)
 
 
         self.browser_language = await self.page.evaluate("""() => { return navigator.language || navigator.userLanguage; }""")
