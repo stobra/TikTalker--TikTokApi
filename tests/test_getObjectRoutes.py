@@ -16,3 +16,9 @@ def test_music_object():
 def test_hashtag_object():
     api = TikTokApi()
     assert len(api.getHashtagObject('funny')) > 0
+
+# if __name__ == "__main__":
+#     api = TikTokApi()
+#     t = api.getTikTokById('6829267836783971589') 
+#     print(t)
+#     print(len(t))

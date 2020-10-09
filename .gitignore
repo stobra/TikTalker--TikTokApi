@@ -32,3 +32,6 @@ TikTok/__pycache__/tiktok.cpython-38.pyc
 TikTok/__pycache__/
 __pycache__/
 /__pycache__/
+ztest_error.py
+ztest_get_acrawler.py
+ztest_stealth.py
