@@ -1,5 +1,5 @@
 # %%
-from TikTalker import TikTokApi 
+from TikTok import TikTokApi 
 import autoJ as aj 
 from pandas import DataFrame
 from time import sleep
