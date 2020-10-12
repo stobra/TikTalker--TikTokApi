@@ -32,26 +32,27 @@ class TikTokApi:
         # Get Browser Params
         b = browser('newParam', newParams=True, executablePath=self.executablePath)
 
-        try:
-            self.timezone_name = self.__format_new_params__(b.timezone_name)
-            self.browser_language = self.__format_new_params__(b.browser_language)
-            self.browser_platform = self.__format_new_params__(b.browser_platform)
-            self.browser_name = self.__format_new_params__(b.browser_name)
-            self.browser_version = self.__format_new_params__(b.browser_version)
-            self.width = b.width
-            self.height = b.height
-        except Exception as e:
-            if debug:
-                print("The following error occurred, but it was ignored.")
-                print(e)
-
-            self.timezone_name = ""
-            self.browser_language = ""
-            self.browser_platform = ""
-            self.browser_name = ""
-            self.browser_version = ""
-            self.width = randint(320, 980)
-            self.height = randint(320, 980)
+        self.timezone_name = ""
+        self.browser_language = ""
+        self.browser_platform = ""
+        self.browser_name = ""
+        self.browser_version = ""
+        self.width = randint(320, 980)
+        self.height = randint(320, 980)
+        
+        if b.url != 'newParam':
+            try:
+                self.timezone_name = self.__format_new_params__(b.timezone_name)
+                self.browser_language = self.__format_new_params__(b.browser_language)
+                self.browser_platform = self.__format_new_params__(b.browser_platform)
+                self.browser_name = self.__format_new_params__(b.browser_name)
+                self.browser_version = self.__format_new_params__(b.browser_version)
+                self.width = b.width
+                self.height = b.height
+            except Exception as e:
+                if debug:
+                    print("The following error occurred, but it was ignored.")
+                    print(e)
 
         self.request_delay = request_delay
 
@@ -71,12 +72,20 @@ class TikTokApi:
         if self.request_delay is not None:
             time.sleep(self.request_delay)
 
-        query = {'did': b.did, '_signature': b.signature}
+        # query = {'did': b.did, '_signature': b.signature}
+        query = {}
         try:
             query['verifyFp'] = b.verifyFp 
         except:
             print('No verifyFp')   
-            pass 
+        try:
+            query['did'] = b.did
+        except:
+            print('No did')   
+        try:
+            query['_signature'] = b.signature
+        except:
+            print('No signature')  
         url = f"{b.url}&{urlencode(query)}"
         headers={
             'authority': 'm.tiktok.com',
