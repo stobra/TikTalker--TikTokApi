@@ -40,7 +40,7 @@ class browser:
             "--window-position=0,0",
             "--ignore-certifcate-errors",
             "--ignore-certifcate-errors-spki-list",
-            "--user-agent=" + self.userAgent
+            "--user-agent=" + self.userAgent,
         ]
 
         if proxy != None:
@@ -62,7 +62,7 @@ class browser:
             'userDataDir': userDataDir,
             'handleSIGINT': False,
             'handleSIGTERM': False,
-            'handleSIGHUP': False
+            'handleSIGHUP': False,
         }
 
         if self.executablePath != None:

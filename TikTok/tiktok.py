@@ -108,10 +108,10 @@ class TikTokApi:
         except Exception as e:
             if self.debug:
                 print(e)
-            print(r.request.headers)
-            print("Converting response to JSON failed response is below (probably empty)")
-            print(r.text)
-            print(r.status_code)
+                print(r.request.headers)
+                print("Converting response to JSON failed response is below (probably empty)")
+                print(r.text)
+                print(r.status_code)
 
             raise Exception('Invalid Response')
 
@@ -996,7 +996,6 @@ class TikTokApi:
             tmp = r.text.split("vid:")
             if len(tmp) > 1:
                 key = tmp[1].split("%")[0]
-                print(key)
                 if key[-1:] == ' ':
                     key = key[1:]
 
