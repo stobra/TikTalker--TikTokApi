@@ -7,6 +7,7 @@ import requests
 import logging
 from random import randint 
 from threading import Thread
+from os import getlogin
 
 # Import Detection From Stealth
 from .stealth import stealth
@@ -49,12 +50,16 @@ class browser:
             else:
                 self.args.append("--proxy-server=" + proxy)
             print('proxy:', proxy)
+
+        userDataDir = "./tmp"
+        if str(getlogin()).lower() == 'brady': 
+            userDataDir = f"C:/Users/{str(getlogin())}/OneDrive/flighthouse/pyFiles/tmp"
         self.options = {
             'args': self.args,
             # 'headless': False,
             'headless': True,
             'ignoreHTTPSErrors': True,
-            'userDataDir': "./tmp",
+            'userDataDir': userDataDir,
             'handleSIGINT': False,
             'handleSIGTERM': False,
             'handleSIGHUP': False
