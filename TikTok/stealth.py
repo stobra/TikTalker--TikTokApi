@@ -484,7 +484,7 @@ async def stealth(page: Page) -> None:
     # await chrome_runtime(page)
     await console_debug(page)
     await iframe_content_window(page)
-    #await navigator_languages(page)
+    await navigator_languages(page)
     await navigator_permissions(page)
     await navigator_plugins(page)
     await navigator_webdriver(page)
