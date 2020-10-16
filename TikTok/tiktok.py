@@ -72,20 +72,14 @@ class TikTokApi:
         if self.request_delay is not None:
             time.sleep(self.request_delay)
 
-        # query = {'did': b.did, '_signature': b.signature}
-        query = {}
-        try:
-            query['verifyFp'] = b.verifyFp 
-        except:
-            print('No verifyFp')   
-        try:
-            query['did'] = b.did
-        except:
-            print('No did')   
-        try:
-            query['_signature'] = b.signature
-        except:
-            print('No signature')  
+        # query = {}
+        # try: query['verifyFp'] = b.verifyFp 
+        # except: print('No verifyFp')   
+        # try: query['did'] = b.did
+        # except: print('No did')   
+        # try: query['_signature'] = b.signature
+        # except: print('No signature')  
+        query = {'did': b.did, '_signature': b.signature}
         url = f"{b.url}&{urlencode(query)}"
         headers={
             'authority': 'm.tiktok.com',

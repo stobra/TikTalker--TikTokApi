@@ -1,4 +1,5 @@
 import asyncio
+from logging import debug
 import pyppeteer
 import random
 import time
@@ -101,8 +102,14 @@ class browser:
     async def newParams(self) -> None:
         self.browser = await pyppeteer.launch(self.options)
         self.page = await self.browser.newPage()
-        await self.page.goto("about:blank")
-        # await self.page.goto(self.referrer)
+        await self.page.goto("about:blank") 
+        ua = await self.page.evaluate('navigator.userAgent')
+        if debug:
+            print('Browser check:', ua)
+            await self.page.goto(self.referrer)
+            ua = await self.page.evaluate('navigator.userAgent') 
+            print('Browser check #2:', ua)
+
         # await asyncio.sleep(.2)
 
 
