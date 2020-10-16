@@ -10,3 +10,5 @@ def test_non_latin1():
     api = TikTokApi()
 
     assert len(api.byHashtag('селфи', count=3)) == 3
+
+    

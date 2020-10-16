@@ -36,6 +36,7 @@ class browser:
             "--no-sandbox",
             "--disable-setuid-sandbox",
             "--disable-infobars",
+            "--disable-gpu",
             "--window-position=0,0",
             "--ignore-certifcate-errors",
             "--ignore-certifcate-errors-spki-list",
