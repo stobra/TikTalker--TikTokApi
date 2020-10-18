@@ -79,7 +79,7 @@ class TikTokApi:
         # except: print('No did')   
         # try: query['_signature'] = b.signature
         # except: print('No signature')  
-        query = {'did': b.did, '_signature': b.signature}
+        query = {'verifyFp': b.verifyFp, 'did': b.did, '_signature': b.signature}
         url = f"{b.url}&{urlencode(query)}"
         headers={
             'authority': 'm.tiktok.com',
@@ -98,6 +98,7 @@ class TikTokApi:
         }
         r = requests.get(url, headers=headers, proxies=self.__format_proxy(proxy))
         try:
+            # return r  # TEMP TESTING 
             return r.json()
         except Exception as e:
             if self.debug:
@@ -1076,4 +1077,10 @@ class TikTokApi:
         return region, language, proxy, minCursor, maxCursor, maxCount
 
 # tik = TikTokApi(debug=True)
+# req = tik.userPage('therock')
+# pager = tik.getUserPager('therock', page_size=5)
+# print(pager)
+# print(req.content)
+# print(req.json())
+# print('Done')
 # u = tik.getUserObject('iamcardib')
