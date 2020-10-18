@@ -35,3 +35,8 @@ __pycache__/
 ztest_error.py
 ztest_get_acrawler.py
 ztest_stealth.py
+chrome trys/ 
+build/
+TikTok/__pycache__/**
+TikTok/__pycache__/browser.cpython-38.pyc
+TikTok/__pycache__/tiktok.cpython-38.pyc

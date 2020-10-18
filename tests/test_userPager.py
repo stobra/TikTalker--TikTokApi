@@ -46,4 +46,6 @@ class TestUserPager:
             total_tts += len(page)
 
         assert pages == 3
-        assert total_tts == 7
+        assert total_tts == 7 
+
+# t = TestUserPager() 
